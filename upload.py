@@ -1,4 +1,4 @@
-from selenium.common.exceptions import NoSuchElementException
+﻿from selenium.common.exceptions import NoSuchElementException
 import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
@@ -27,7 +27,7 @@ if __name__ == '__main__':
     with open('sobs.txt') as sobs:
         for sob in sobs:
             sob = sob.strip()
-            driver.get(url2 + sob[:10])
+            driver.get(url2 + sob.partition("_")[0])
             try:  # Verifica se o arquivo já foi anexado.
                 anexo = driver.find_element_by_xpath(
                     "*//a[contains(text(), '" + sob + ".PDF""')]")
