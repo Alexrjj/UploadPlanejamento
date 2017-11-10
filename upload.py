@@ -57,8 +57,6 @@ if __name__ == '__main__':
                                                               '"Arquivo salvo com sucesso.")]')
                         if status.is_displayed():
                             print(sob + " anexado com sucesso.\n")
-                            driver.save_screenshot('C:\\Users\\Planejamento SG\\Google Drive\Pacote de Obras\\13. '
-                                                   'Nova org Novembro\\screenshots\\%s' % sob + ".png")
                     except NoSuchElementException:
                         log = open("log.txt", "a")
                         log.write(sob + " não foi anexado.")
