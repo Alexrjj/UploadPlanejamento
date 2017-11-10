@@ -52,7 +52,7 @@ if __name__ == '__main__':
                     driver.find_element_by_id('fileUPArquivo').send_keys(os.getcwd() + "\\" + sob + ".PDF")
                     driver.find_element_by_id('Button_Anexar').click()
                     try:
-                        # Verifica se o arquivo foi anexado com êxito e captura a tela.
+                        # Verifica se o arquivo foi anexado com êxito
                         status = driver.find_element_by_xpath('//*[@id="txtBoxMessage"][contains(text(),'
                                                               '"Arquivo salvo com sucesso.")]')
                         if status.is_displayed():
