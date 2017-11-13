@@ -3,11 +3,6 @@ import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
 
-try:
-    from itertools import izip
-except ImportError:  # python3.x
-    izip = zip
-
 url = 'http://gomnet.ampla.com/'
 url2 = 'http://gomnet.ampla.com/Upload.aspx?numsob='
 username = ''
@@ -38,7 +33,7 @@ if __name__ == '__main__':
                     erro = driver.find_element_by_xpath('*//tr/td[contains(text(),'
                                                         '"Não existem dados para serem exibidos.")]')
                     if erro.is_displayed():
-                        print("Sob não encontrada. Favor verificar.")
+                        print("Sob " + sob + " não encontrada. Favor verificar.")
                 except NoSuchElementException:
                     # Preenche o campo "Descrição" com "PONTO DE SERVIÇO"
                     atividade = driver.find_element_by_id('txtBoxDescricao')
