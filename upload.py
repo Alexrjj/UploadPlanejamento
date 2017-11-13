@@ -33,7 +33,7 @@ if __name__ == '__main__':
                     erro = driver.find_element_by_xpath('*//tr/td[contains(text(),'
                                                         '"Não existem dados para serem exibidos.")]')
                     if erro.is_displayed():
-                        print("Sob " + sob + " não encontrada. Favor verificar.")
+                        print("Sob " + sob.partition("_")[0] + " não encontrada. Favor verificar.")
                 except NoSuchElementException:
                     # Preenche o campo "Descrição" com "PONTO DE SERVIÇO"
                     atividade = driver.find_element_by_id('txtBoxDescricao')
