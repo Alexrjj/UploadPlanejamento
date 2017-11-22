@@ -2,11 +2,16 @@
 import os
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
+import openpyxl
 
+#  Acessa os dados de login fora do script, salvo numa planilha existente, para proteger as informações de credenciais
+dados = openpyxl.load_workbook('C:\\gomnet.xlsx')
+login = dados['Plan1']
 url = 'http://gomnet.ampla.com/'
 url2 = 'http://gomnet.ampla.com/Upload.aspx?numsob='
-username = ''
-password = ''
+username = login['A1'].value
+password = login['A2'].value
+
 
 driver = webdriver.Chrome()
 if __name__ == '__main__':
