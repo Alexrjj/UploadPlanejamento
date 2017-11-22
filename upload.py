@@ -28,17 +28,17 @@ if __name__ == '__main__':
         for sob in sobs:
             sob = sob.strip()
             driver.get(url2 + sob.partition("_")[0])
-            try:  # Verifica se o arquivo já foi anexado.
-                anexo = driver.find_element_by_xpath(
-                    "*//a[contains(text(), '" + sob + ".PDF""')]")
-                if anexo.is_displayed():
-                    print("Arquivo " + sob + ".PDF já foi anexado.")
+            try:  # Verifica se a sob foi digitada incorretamente.
+                erro = driver.find_element_by_xpath('*//tr/td[contains(text(),'
+                                                    '"Não existem dados para serem exibidos.")]')
+                if erro.is_displayed():
+                    print("Sob " + sob.partition("_")[0] + " não encontrada. Favor verificar.")
             except NoSuchElementException:
-                try:  # Verifica se a sob foi digitada incorretamente.
-                    erro = driver.find_element_by_xpath('*//tr/td[contains(text(),'
-                                                        '"Não existem dados para serem exibidos.")]')
-                    if erro.is_displayed():
-                        print("Sob " + sob.partition("_")[0] + " não encontrada. Favor verificar.")
+                try:  # Verifica se o arquivo já foi anexado.
+                    anexo = driver.find_element_by_xpath(
+                        "*//a[contains(text(), '" + sob + ".PDF""')]")
+                    if anexo.is_displayed():
+                        print("Arquivo " + sob + ".PDF já foi anexado.")
                 except NoSuchElementException:
                     # Preenche o campo "Descrição" com "PONTO DE SERVIÇO"
                     atividade = driver.find_element_by_id('txtBoxDescricao')
