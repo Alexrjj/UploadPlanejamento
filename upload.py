@@ -40,7 +40,7 @@ if __name__ == '__main__':
                     if anexo.is_displayed():
                         print("Arquivo " + sob + ".PDF já foi anexado.")
                 except NoSuchElementException:
-                    # Preenche o campo "Descrição" com "PONTO DE SERVIÇO"
+                    # Preenche o campo "Descrição" com "PLANEJAMENTO"
                     atividade = driver.find_element_by_id('txtBoxDescricao')
                     atividade.send_keys('PLANEJAMENTO')
                     # Identifica o menu " Categoria de Documento" e seleciona a opção "EXECUCAO"
@@ -56,7 +56,7 @@ if __name__ == '__main__':
                         status = driver.find_element_by_xpath('//*[@id="txtBoxMessage"][contains(text(),'
                                                               '"Arquivo salvo com sucesso.")]')
                         if status.is_displayed():
-                            print(sob + " anexado com sucesso.\n")
+                            print(sob + " anexado com sucesso.")
                     except NoSuchElementException:
                         log = open("log.txt", "a")
                         log.write(sob + " não foi anexado.")
